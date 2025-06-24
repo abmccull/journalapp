@@ -1,0 +1,93 @@
+---
+description: Apply these rules when creating the project
+globs:
+alwaysApply: true
+---
+## Project Overview
+
+*   **Type:** Mobile Application
+*   **Description:** Guided Journal App – Help people capture life’s highlights, lessons, and feelings in minutes each day through guided prompts, seamless voice or text input, and AI‑polished entries.
+*   **Primary Goal:** Frictionless capture of daily journal entries with a focus on privacy and user retention.
+
+## Project Structure
+
+### Framework-Specific Routing
+
+*   **Directory Rules:**
+
+    *   `React Native + Expo`: Use a single codebase for both iOS and Android platforms, leveraging Expo for over-the-air updates.
+    *   Example: Use `src/screens/` for screen components and `src/navigation/` for navigation setup.
+
+### Core Directories
+
+*   **Versioned Structure:**
+
+    *   `src/api`: API calls and services for interacting with Supabase and other backend services.
+    *   `src/components`: Reusable UI components.
+    *   `src/screens`: Screen components for different app views.
+    *   `src/navigation`: Navigation setup using React Navigation.
+
+### Key Files
+
+*   **Stack-Versioned Patterns:**
+
+    *   `src/api/supabaseClient.js`: Setup and configuration for Supabase client.
+    *   `src/screens/AuthScreen.js`: Handles authentication flows using Supabase.
+
+## Tech Stack Rules
+
+*   **Version Enforcement:**
+
+    *   `supabase@latest`: Use Supabase for authentication and database management, ensuring real-time capabilities and RLS (Row Level Security).
+    *   `react-native@latest`: Ensure compatibility with the latest React Native features and Expo SDK.
+
+## PRD Compliance
+
+*   **Non-Negotiable:**
+
+    *   "Privacy by default: Local dictation, encrypted sync, user‑controlled sharing": Ensure all data handling complies with privacy standards, using end-to-end encryption where possible.
+
+## App Flow Integration
+
+*   **Stack-Aligned Flow:**
+
+    *   Example: "Auth Flow → `src/screens/AuthScreen.js` uses Supabase for social logins and email authentication."
+
+## Best Practices
+
+*   **React Native**
+
+    *   Use functional components and React hooks for state management.
+    *   Optimize performance by using FlatList for rendering large lists.
+    *   Ensure accessibility by supporting screen readers and dynamic font sizes.
+
+*   **Supabase**
+
+    *   Implement RLS for secure data access.
+    *   Use Supabase's built-in authentication for social logins (Google, Apple).
+    *   Regularly update the Supabase client to leverage new features and security patches.
+
+## Rules
+
+*   Derive folder/file patterns **directly** from `techStackDoc` versions.
+*   Use `src/screens/` for screen components and `src/navigation/` for navigation setup in React Native projects.
+*   Ensure Supabase is used for both authentication and database management, leveraging its real-time capabilities.
+
+## Rules Metrics
+
+Add the following instruction for analyzing rules usage:
+
+Before starting the project development, create a metrics file in the root of the project called
+
+`cursor_metrics.md`.
+
+### Instructions:
+
+*   Each time a cursor rule is used as context, update `cursor_metrics.md`.
+
+*   Use the following format for `cursor_metrics.md:` Rules Metrics (h1) \n\nUsage (h2)\n\
+    The number of times rules is used as context\n
+
+    *   rule-name.mdc: 5
+    *   another-rule.mdc: 2
+    *   ...other rules
